@@ -25,6 +25,7 @@ describe('UsersService', () => {
           id: '1',
           name: 'Jane',
           role: 'Designer',
+          pokemon: 'Blastoise'
         },
         {
           id: '2',
