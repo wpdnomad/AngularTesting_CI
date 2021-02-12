@@ -1,5 +1,7 @@
 import { TestBed } from '@angular/core/testing';
 import { UsersService } from './users.service';
+import { of } from 'rxjs'; // Add import
+
 
 describe('UsersService', () => {
   let usersService: UsersService; // Add this
@@ -15,4 +17,31 @@ describe('UsersService', () => {
   it('should be created', () => { // Remove inject()
     expect(usersService).toBeTruthy();
   });
+   // Add tests for all() method
+   describe('all', () => {
+    it('should return a collection of users', () => {
+      const userResponse = [
+        {
+          id: '1',
+          name: 'Jane',
+          role: 'Designer',
+        },
+        {
+          id: '2',
+          name: 'Bob',
+          role: 'Developer',
+          pokemon: 'Charizard'
+        }
+      ];
+      let response;
+      spyOn(usersService, 'all').and.returnValue(of(userResponse));
+
+      usersService.all().subscribe(res => {
+        response = res;
+      });
+
+      expect(response).toEqual(userResponse);
+    });
+  });
 });
+
