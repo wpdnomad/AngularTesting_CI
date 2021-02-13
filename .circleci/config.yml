@@ -1,7 +1,10 @@
 version: 2
 
 jobs:
+CHROME_BIN=/usr/bin/google-chrome
   build: initial
+  environment:
+    CHROME_BIN : '/usr/bin/google-chrome'
     machine:
       image: windows-default # Windows machine image
     resource_class: windows.medium
