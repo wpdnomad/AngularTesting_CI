@@ -12,9 +12,6 @@ jobs:
           key:/home-{{ .Branch }}-{{ checksum "package-lock.json" }}
       - run: npm install
       - save_cache:
-          key:/home-{{ .Branch }}-{{ checksum "package-lock.json" }}
-          paths:
-            - "node_modules"
+          key:/home-{{ .Branch }}-{{ checksum "package-lock.json" }}s
       - run: npm run test -- --no-watch --no-progress --browsers=ChromeHeadlessCI
       - run: npm run e2e -- --protractor-config=e2e/protractor-ci.conf.js
-
