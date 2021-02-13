@@ -1,7 +1,6 @@
 version: 2
 
 jobs:
-CHROME_BIN=/usr/bin/google-chrome
   build: initial
   environment:
     CHROME_BIN : '/usr/bin/google-chrome'
