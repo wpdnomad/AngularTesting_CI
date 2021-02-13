@@ -1,11 +1,11 @@
 version: 2
-environment:
-    CHROME_BIN : '/usr/bin/google-chrome'
 jobs:
   build: initial
     machine:
       image: windows-default # Windows machine image
     resource_class: windows.medium
+    environment:
+  CHROME_BIN: /usr/bin/google-chrome
     steps:
       # Commands are run in a Windows virtual machine environment
         - checkout
