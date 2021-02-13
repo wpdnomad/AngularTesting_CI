@@ -1,7 +1,7 @@
 version: 2
 jobs:
   build:
-    working_directory: ~/home
+    working_directory: ~/angular-testing
     docker:
       - image: circleci/node:10-browsers
     environment:
@@ -9,10 +9,10 @@ jobs:
     steps:
       - checkout
       - restore_cache:
-          key:/home-{{ .Branch }}-{{ checksum "package-lock.json" }}
+          key:/angular-testing-{{ .Branch }}-{{ checksum "package-lock.json" }}
       - run: npm install
       - save_cache:
-          key:/home-{{ .Branch }}-{{ checksum "package-lock.json" }}
+          key:/angular-testing-{{ .Branch }}-{{ checksum "package-lock.json" }}
           paths:
             - "node_modules"
       - run: npm run test -- --no-watch --no-progress --browsers=ChromeHeadlessCI
