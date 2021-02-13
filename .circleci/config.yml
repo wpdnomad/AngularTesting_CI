@@ -2,11 +2,12 @@ version: 2
 jobs:
   build: initial
     machine:
-      environment:
-  CHROME_BIN: /usr/bin/google-chrome
         image: windows-default # Windows machine image
     resource_class: windows.medium
     steps:
       # Commands are run in a Windows virtual machine environment
-        - checkout
-        - run: Write-Host 'Hello, Windows'
+           - checkout
+        - run:
+        environment:
+            CHROME_BIN: /usr/bin/google-chrome
+         Write-Host : 'Hello, Windows'
